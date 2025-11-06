@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Async/Await Demo</title>
+</head>
+<body>
+  <h2>Simulated Data Loader (Async/Await)</h2>
+  <button onclick="loadData()">Load Data</button>
+  <p id="result"></p>
+
+  <script>
+    function fetchData() {
+      return new Promise((resolve) => {
+        setTimeout(() => {
+          resolve("🎉 Data loaded successfully using Async/Await!");
+        }, 2000);
+      });
+    }
+
+    async function loadData() {
+      document.getElementById("result").innerText = "⏳ Loading, please wait...";
+      const data = await fetchData();
+      document.getElementById("result").innerText = data;
+    }
+  </script>
+</body>
+</html>
